@@ -260,7 +260,7 @@ moments.level3.nextText = function() {
 		case 5:
 			robot.isText = false;
 			robot.render();
-			startMoment("level3");
+			startMoment("level1");
 			break;
 	}
 }
