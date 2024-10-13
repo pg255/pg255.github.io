@@ -679,8 +679,6 @@ moments.level5.nextText = function() {
 					if (player.touching.indexOf("149,149,149") != -1) {
 						moments.level5.currentText.main++;
 						moments.level5.nextText();
-						moments.level5.currentText.main++;
-						moments.level5.nextText();
 					}
 				}
 				break;
