@@ -677,7 +677,6 @@ moments.level5.nextText = function() {
 				}
 				moments.level5.onClick = function() {
 					if (player.touching.indexOf("149,149,149") != -1) {
-						moments.level5.currentText.main++;
 						moments.level5.nextText();
 					}
 				}
@@ -725,6 +724,7 @@ moments.level5.nextText = function() {
 				robot.showText("wait", 200, 15, 25, "#cc0", 8, "#000", true);
 				moments.level5.currentText.main++;
 				audio.play("beebs");
+				moments.level5.onClick = function() {}
 				break;
 			case 28:
 				robot.showText("bad news", 200, 15, 25, "#cc0", 8, "#000", true);
