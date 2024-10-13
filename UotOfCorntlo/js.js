@@ -792,6 +792,6 @@ moments.level5.nextText = function() {
 
 
 function start() {
-	startMoment("level5");
+	startMoment("level1");
 }
 
