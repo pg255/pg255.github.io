@@ -1,5 +1,5 @@
 var player = new layer("player");
-player.images = {happy: "cursorHappy", sad: "cursorSad", mad: "cursorMad", suprised: "cursorSuprised"};
+player.images = {happy: "cursorHappy", sad: "cursorSad", mad: "cursorMad", suprised: "cursorSuprised", glitched: "cursorGlitched"};
 player.moving = 0;
 player.up = false;
 player.down = false;
@@ -37,6 +37,9 @@ player.move = function() {
 player.keyDown = function(way) {
 	if (player.moving == 0) {
 		player.interval = setInterval(player.move, settings.playerSpeed);
+		audio.audios.moving.play();
+		audio.audios.moving.loop = true;
+		audio.audios.volume = 0.1;
 	}
 	if (!player[way]) {
 		player[way] = true;
@@ -46,6 +49,7 @@ player.keyDown = function(way) {
 player.keyUp = function(way) {
 	if (player.moving == 1) {
 		clearInterval(player.interval);
+		audio.stop("moving");
 	}
 	if (player[way]) {
 		player[way] = false;
@@ -72,6 +76,7 @@ player.death = function() {
 	player.mood = "sad";
 	player.allowMove = false;
 	player.render();
+	audio.play("death");
 	setTimeout(function() {
 		player.x = moments[currentMoment].spawnX;
 		player.y = moments[currentMoment].spawnY;

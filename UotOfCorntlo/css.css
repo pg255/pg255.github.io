@@ -47,6 +47,7 @@ body {
 	float: right;
 	width: calc(100% - 120px - 50vh);
 	margin: 30px 30px 30px 30px;
+	height: 50vh;
 }
 
 #title {
@@ -58,7 +59,7 @@ body {
 	margin-bottom: 30px;
 }
 
-#paragraph {
+.paragraph {
 	font-family: "PressStart2p";
 	font-size: 20px;
 	width: 100%;

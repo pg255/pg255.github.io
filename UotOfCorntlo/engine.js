@@ -133,8 +133,16 @@ var audio = {
 		}
 	},
 	play(id) {
+		if (!audio.audios[id].paused) {
+			audio.audios[id].pause();
+			audio.audios[id].currentTime = 0;
+		}
 		audio.audios[id].play();
 		audio.audios[id].loop = false;
+	},
+	stop(id) {
+		audio.audios[id].pause();
+		audio.audios[id].currentTime = 0;
 	},
 	fadeTick: 10,
 	fadeSize: 0.01,
@@ -164,8 +172,8 @@ var audio = {
 				audio.audios[audio.currentMusic].volume = 1;
 				return;
 			}
-			if (audio.audios[audio.currentMusic].volume - audio.fadeSize > 0) {
-				audio.audios[audio.currentMusic].volume -= audio.fadeSize;
+			if (parseFloat(audio.audios[audio.currentMusic].volume) - audio.fadeSize > 0) {
+				audio.audios[audio.currentMusic].volume = parseFloat(audio.audios[audio.currentMusic].volume) - audio.fadeSize;
 			} else {
 				clearInterval(audio.interval);	
 				audio.stopMusic();
