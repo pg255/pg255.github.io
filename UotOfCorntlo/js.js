@@ -568,6 +568,7 @@ moments.level5.nextText = function() {
 				moments.level5.isOnText = true;
 				player.allowMove = false;
 				robot.showText("good!", 200, 15, 25, "#cc0", 8, "#000", true);
+				audio.playMusic("weGotControl");
 				audio.play("beebs");
 				moments.level5.onMove = function() {
 					background2.image("logoGlitched", true, player.x - 10, player.y + 30, 40, 40);
@@ -639,6 +640,7 @@ moments.level5.nextText = function() {
 				moments.level5.interval = setInterval(function() {
 					background2.can.style.opacity = parseFloat(background2.can.style.opacity) + 0.01;
 				}, 200);
+				audio.playMusic("outOfControl");
 				background2.image("glitch", true);
 				audio.play("beeb");
 				player.x = 65;
@@ -671,29 +673,16 @@ moments.level5.nextText = function() {
 								background2.can.style.opacity = 0.1;
 							}, 1000);
 						}
-						if (player.touching.indexOf("0,204,0") != -1 && player.touching.length == 1) {
-							moments[currentMoment].noClip = true;
-							setTimeout(function() {
-								moments[currentMoment].noClip = false;
-								player.allowMove = false;
-								setTimeout(function() {
-									background2.image("lvl2_2", true);
-									background2.opacityUp();
-									setTimeout(function() {
-										moments.level2.nextText();
-									}, 500);
-								}, 900)
-							}, 100);
-						}
 					}
 				}
 				moments.level5.onClick = function() {
 					if (player.touching.indexOf("149,149,149") != -1) {
 						moments.level5.currentText.main++;
 						moments.level5.nextText();
+						moments.level5.currentText.main++;
+						moments.level5.nextText();
 					}
 				}
-				
 				break;
 			case 21:
 				moments.level5.isOnText = true;
@@ -727,8 +716,77 @@ moments.level5.nextText = function() {
 				robot.clear();
 				player.allowMove = true;
 				robot.isText = false;
+				moments.level5.isOnText = false;
+				player.allowMove = true;
+				robot.clear();
+				moments.level5.currentText.main++;
+				break;
 			case 27:
-				audio.play("beeb");
+				moments.level5.isOnText = true;
+				player.allowMove = false;
+				robot.showText("wait", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 28:
+				robot.showText("bad news", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 29:
+				robot.showText("time got", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 30:
+				robot.showText("UOT FO CORNTLO", 200, 30, 50, "#c00", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("ohNo");
+				break;
+			case 31:
+				robot.showText("FO CORNTLO UOT", 200, 30, 50, "#c00", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("ohNo");
+				break;
+			case 32:
+				robot.showText("gotta end the game ):", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 33:
+				robot.showText(")::", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 34:
+				robot.showText("thank you to all mentors and organizers!", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 35:
+				robot.showText("And I had cool roommates (:", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 36:
+				robot.showText("and also if I am doing part 2", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 37:
+				robot.showText("there will be", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 38:
+				robot.showText("talking robot got", 200, 15, 25, "#cc0", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("beebs");
+				break;
+			case 39:
+				robot.showText("UOT OF CORNTLO", 200, 30, 50, "#c00", 8, "#000", true);
+				moments.level5.currentText.main++;
+				audio.play("ohNo");
 				break;
 		}
 	}
@@ -736,6 +794,6 @@ moments.level5.nextText = function() {
 
 
 function start() {
-	startMoment("level1");
+	startMoment("level5");
 }
 
