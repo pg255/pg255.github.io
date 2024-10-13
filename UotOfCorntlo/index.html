@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Uot Of Corntlo</title>
+		<meta name="description" content=""> <!-- change -->
+		<meta name="keywords" content=""> <!-- change -->
+		<meta charset="UTF-8">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+		<link rel="stylesheet" href="css.css">
+		<link rel="icon" href="assets/logo.png" type="image/png">
+	</head>
+	<body onresize="resizeFunction()">
+		<div id="layers">
+			<canvas id="background" class="layer"></canvas>
+			<canvas id="background2" class="layer"></canvas>
+			<canvas id="player" class="layer"></canvas>
+			<canvas id="robot" class="layer"></canvas>
+		</div>
+		<div id="images">
+			<img id="i-cursorHappy" src="assets/cursorHappy.png">
+			<img id="i-cursorSad" src="assets/cursorSad.png">
+			<img id="i-cursorSuprised" src="assets/cursorSuprised.png">
+			<img id="i-lvl1" src="assets/lvl1.png">
+			<img id="i-lvl2-1" src="assets/lvl2-1.png">
+			<img id="i-lvl2-2" src="assets/lvl2-2.png">
+			<img id="i-lvl3" src="assets/lvl3.png">
+			<img id="i-lvl4" src="assets/lvl4.png">
+			<img id="i-error1" src="assets/error1.png">
+			<img id="i-desktop1" src="assets/desktop1.png">
+			<img id="i-desktop2" src="assets/desktop2.png">
+			<img id="i-desktop3" src="assets/desktop3.png">
+			<img id="i-desktop4" src="assets/desktop4.png">
+			<img id="i-trash" src="assets/trashCan.png">
+			<img id="i-logoGlitched" src="assets/logoGlitched.png">
+		</div>
+		<div id="start" onclick="startRender(); this.style.display = 'none';"></div>
+		<video src="assets/codeGettingDestroyed.mp4" id="video"></video>
+		<script src="engine.js"></script>
+		<script src="robot.js"></script>
+		<script src="player.js"></script>
+		<script src="js.js"></script>
+	</body>
+</html>
