@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title> <!-- change -->
+		<meta name="description" content=""> <!-- change -->
+		<meta name="keywords" content=""> <!-- change -->
+		<meta charset="UTF-8">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	</head>
+	<body>
+		<textarea id="textarea" rows="11" style="font-size: 20px;" oninput="change(this.value)"></textarea>
+		<input type="text" id="spear" value="-" oninput="change">
+		<h1>first</h1>
+		<textarea id="txt1" rows="11"></textarea>
+		<h1>second</h1>
+		<textarea id="txt2" rows="11"></textarea>
+		<script>
+
+			function change(value) {
+				let names = value.split('\n');
+				let firsts = [];
+				let lasts = [];
+				names.sort(() => Math.random() - 0.5);
+				for (let i in names) {
+					firsts.push(`${i}. ${names[i].slice(0, names[i].indexOf(document.getElementById('spear').value))}`);
+				}
+				names.sort(() => Math.random() - 0.5);
+				for (let i in names) {
+					lasts.push(`${i}. ${names[i].slice(names[i].indexOf(document.getElementById('spear').value) + 1, names[i].length)}`);
+				}
+				document.getElementById('txt1').innerHTML = firsts.join('\n');
+				document.getElementById('txt2').innerHTML = lasts.join('\n');
+			}
+			setInterval
+		</script>
+	</body>
+</html>
