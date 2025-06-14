@@ -120,7 +120,7 @@ document.addEventListener('keydown', function(event) {
 });
 document.addEventListener('keyup', function(event) {
 	if (!started && event.keyCode == 16) {
-		startRender(); document.getElementById("start").style.display = 'none';
+		doTimer = true;
 		return;
 	}
 	if (moments[currentMoment].onkey["u" + event.keyCode] !== undefined) {
