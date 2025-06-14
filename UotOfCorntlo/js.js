@@ -9,7 +9,6 @@ function startTimer() {
 		}
 		console.log(time);
 	}, 10);
-	startRender();
 }
 
 var settings = {
