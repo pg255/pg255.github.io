@@ -119,11 +119,11 @@ document.addEventListener('keydown', function(event) {
 	//console.log(event.keyCode);
 });
 document.addEventListener('keyup', function(event) {
+	if (!started && event.keyCode == 16) {
+		startTimer();
+	}
 	if (moments[currentMoment].onkey["u" + event.keyCode] !== undefined) {
 		moments[currentMoment].onkey["u" + event.keyCode]();
-	}
-	if (event.keyCode == 16) {
-		startTimer();
 	}
 });
 
