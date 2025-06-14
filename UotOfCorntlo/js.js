@@ -7,6 +7,7 @@ function startTimer() {
 			alert("time: " + (time / 100) + " seconds");
 			clearInterval(timer);
 		}
+		console.log(time);
 	}, 10);
 	startRender();
 }
