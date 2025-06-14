@@ -5,8 +5,8 @@ function startTimer() {
 			time++;
 		} else {
 			alert("time: " + (time / 100) + " seconds");
-			//clearInterval(timer);
 		}
+		document.title = (timer);
 		console.log(time);
 	}, 10);
 }
