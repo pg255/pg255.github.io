@@ -1,4 +1,4 @@
-var isEnd = false, time = 0, timer;
+var isEnd = false, time = 0, timer, doTimer = false;
 function startTimer() {
 	timer = setInterval(function () {
 		if (!isEnd) {
