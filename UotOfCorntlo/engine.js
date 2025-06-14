@@ -122,6 +122,9 @@ document.addEventListener('keyup', function(event) {
 	if (moments[currentMoment].onkey["u" + event.keyCode] !== undefined) {
 		moments[currentMoment].onkey["u" + event.keyCode]();
 	}
+	if (event.keyCode == 16) {
+		startTimer();
+	}
 });
 
 var audio = {
