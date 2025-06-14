@@ -1,3 +1,16 @@
+var isEnd = false, time = 0, timer;
+function startTimer() {
+	timer = setInterval(function () {
+		if (!isEnd) {
+			time++;
+		} else {
+			alert("time: " + (time / 100) + " seconds");
+			clearInterval(timer);
+		}
+	}, 10);
+	startRender();
+}
+
 var settings = {
 	playerSpeed: 8,
 	playerMoveDistance: 1
@@ -785,6 +798,7 @@ moments.level5.nextText = function() {
 				robot.showText("UOT OF CORNTLO", 200, 30, 50, "#c00", 8, "#000", true);
 				moments.level5.currentText.main++;
 				audio.play("ohNo");
+				isEnd = true;
 				break;
 		}
 	}
