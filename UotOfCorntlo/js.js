@@ -6,7 +6,7 @@ function startTimer() {
 		} else {
 			alert("time: " + (time / 100) + " seconds");
 		}
-		document.title = (timer);
+		document.title = (time / 100) + " seconds";
 		console.log(time);
 	}, 10);
 }
