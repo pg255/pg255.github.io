@@ -5,7 +5,7 @@ function startTimer() {
 			time++;
 		} else {
 			alert("time: " + (time / 100) + " seconds");
-			clearInterval(timer);
+			//clearInterval(timer);
 		}
 		console.log(time);
 	}, 10);
