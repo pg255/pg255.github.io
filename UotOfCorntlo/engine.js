@@ -119,10 +119,6 @@ document.addEventListener('keydown', function(event) {
 	//console.log(event.keyCode);
 });
 document.addEventListener('keyup', function(event) {
-	if (!started && event.keyCode == 16) {
-		doTimer = true;
-		return;
-	}
 	if (moments[currentMoment].onkey["u" + event.keyCode] !== undefined) {
 		moments[currentMoment].onkey["u" + event.keyCode]();
 	}
