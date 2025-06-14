@@ -3,11 +3,15 @@ function startTimer() {
 	timer = setInterval(function () {
 		if (!isEnd) {
 			time++;
-		} else {
+		}
+	}, 10);
+
+	setInterval(function () {
+		document.title = (time / 100) + " seconds";
+		if (isEnd) {
 			alert("time: " + (time / 100) + " seconds");
 		}
-		document.title = (time / 100) + " seconds";
-	}, 10);
+	}, 1000);
 }
 
 var settings = {
@@ -798,6 +802,7 @@ moments.level5.nextText = function() {
 				moments.level5.currentText.main++;
 				audio.play("ohNo");
 				isEnd = true;
+				alert("time: " + (time / 100) + " seconds");
 				break;
 		}
 	}
