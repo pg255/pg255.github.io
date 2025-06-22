@@ -1,0 +1,13 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #330;
+	font-family: monospace;
+}
+#title {
+	width: 100%;
+	font-size: 5em;
+	line-height: 1.5em;
+	text-align: center;
+	color: #fe0;
+}
