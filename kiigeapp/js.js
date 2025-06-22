@@ -1,23 +1,12 @@
-var degree, doneSaying = false, roundmax = 0, overallmax;
+var hasSaid = false;
 
-const acl = new Accelerometer({ frequency: 60 });
-acl.addEventListener("reading", () => {
-	degree = acl.x * 10;
-	if (degree > max) {
-		max = degree;
+function onRotate() {
+	document.getElementById("degree").innerHTML = rotX;
+	if (rotx < 10) {
+		alert("info");
+		hasSaid = true;
 	}
-	if (degree > overallmax) {
-		overallmax = degree;
+	if (20 > rotx) {
+		hasSaid = false;
 	}
-	if (degree < 10 && !doneSaying) {
-		document.write("done");
-		doneSaying = true;
-		max = 0;
-	}
-	if (degree > 20) {
-		doneSaying = false;
-	}
-	document.getElementById("degree").innerHTML = degree;
-});
-
-acl.start();
+}

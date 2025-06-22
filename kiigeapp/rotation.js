@@ -1,0 +1,51 @@
+var rotX, rotY, rotZ;
+
+const messageDiv = document.getElementById("info");
+
+function updateOrientation(event) {
+	rotX = event.beta ? event.beta.toFixed(2) : '?';
+	rotY = event.gamma ? event.gamma.toFixed(2) : '?';
+	rotZ = event.alpha ? event.alpha.toFixed(2) : '?';
+	onRotate();
+}
+
+function requestOrientationPermission() {
+	if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+		DeviceOrientationEvent.requestPermission()
+			.then(state => {
+				if (state === 'granted') {
+					window.addEventListener('deviceorientation', updateOrientation);
+					permissionButton.style.display = 'none';
+					messageDiv.textContent = '';
+				} else {
+					messageDiv.textContent = 'Permission denied to access device orientation.';
+				}
+			})
+			.catch(error => {
+				messageDiv.textContent = `Error requesting permission: ${error.message}`;
+				console.error('Error requesting device orientation permission:', error);
+			});
+	} else {
+		// For browsers that don't require explicit permission (or older browsers)
+		window.addEventListener('deviceorientation', updateOrientation);
+		permissionButton.style.display = 'none';
+		messageDiv.textContent = 'Device orientation started (no explicit permission needed).';
+	}
+}
+
+// Check if DeviceOrientationEvent is supported
+if (window.DeviceOrientationEvent) {
+	// Check if permission is required (iOS 13+ and some other browsers)
+	if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+		permissionButton.style.display = 'block'; // Show the button
+		permissionButton.addEventListener('click', requestOrientationPermission);
+		messageDiv.textContent = 'Click the button to grant sensor permission.';
+	} else {
+		// No explicit permission needed, start listening directly
+		window.addEventListener('deviceorientation', updateOrientation);
+		messageDiv.textContent = 'Monitoring device orientation...';
+	}
+} else {
+	messageDiv.textContent = 'Device Orientation API is not supported by your browser.';
+	messageDiv.style.color = '#dc3545';
+}
