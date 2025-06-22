@@ -10,12 +10,12 @@ function onRotate() {
 		console.log(hasSaid);
 	}
 
-	oscillator.stop();
-	oscillator.frequency.setValueAtTime(400 + (rotX * 3), audioCtx.currentTime);
-	oscillator.start();
+	oscillator.frequency.setValueAtTime(300 + Math.abs(rotX * 3), audioCtx.currentTime);
 }
 
 function start() {
 	startRotation();
-	oscillator.start();
+	if (document.getElementById("doSound").checked) {
+		oscillator.start();
+	}
 }
