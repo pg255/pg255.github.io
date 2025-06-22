@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Orientation Angles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        span {
+            font-weight: bold;
+            color: #28a745;
+        }
+        #permissionButton {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            display: none; /* Hidden by default, shown if permission is needed */
+        }
+        #permissionButton:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Device Orientation Angles</h1>
+        <p>Alpha (Z-axis): <span id="alpha">N/A</span>°</p>
+        <p>Beta (X-axis): <span id="beta">N/A</span>°</p>
+        <p>Gamma (Y-axis): <span id="gamma">N/A</span>°</p>
+        <button id="permissionButton">Grant Sensor Permission</button>
+        <div id="message" class="error"></div>
+    </div>
+
+    <script>
+        const alphaSpan = document.getElementById('alpha');
+        const betaSpan = document.getElementById('beta');
+        const gammaSpan = document.getElementById('gamma');
+        const permissionButton = document.getElementById('permissionButton');
+        const messageDiv = document.getElementById('message');
+
+        function updateOrientation(event) {
+            alphaSpan.textContent = event.alpha ? event.alpha.toFixed(2) : 'N/A';
+            betaSpan.textContent = event.beta ? event.beta.toFixed(2) : 'N/A';
+            gammaSpan.textContent = event.gamma ? event.gamma.toFixed(2) : 'N/A';
+        }
+
+        function requestOrientationPermission() {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission()
+                    .then(state => {
+                        if (state === 'granted') {
+                            window.addEventListener('deviceorientation', updateOrientation);
+                            permissionButton.style.display = 'none';
+                            messageDiv.textContent = '';
+                        } else {
+                            messageDiv.textContent = 'Permission denied to access device orientation.';
+                        }
+                    })
+                    .catch(error => {
+                        messageDiv.textContent = `Error requesting permission: ${error.message}`;
+                        console.error('Error requesting device orientation permission:', error);
+                    });
+            } else {
+                // For browsers that don't require explicit permission (or older browsers)
+                window.addEventListener('deviceorientation', updateOrientation);
+                permissionButton.style.display = 'none';
+                messageDiv.textContent = 'Device orientation started (no explicit permission needed).';
+            }
+        }
+
+        // Check if DeviceOrientationEvent is supported
+        if (window.DeviceOrientationEvent) {
+            // Check if permission is required (iOS 13+ and some other browsers)
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                permissionButton.style.display = 'block'; // Show the button
+                permissionButton.addEventListener('click', requestOrientationPermission);
+                messageDiv.textContent = 'Click the button to grant sensor permission.';
+            } else {
+                // No explicit permission needed, start listening directly
+                window.addEventListener('deviceorientation', updateOrientation);
+                messageDiv.textContent = 'Monitoring device orientation...';
+            }
+        } else {
+            messageDiv.textContent = 'Device Orientation API is not supported by your browser.';
+            messageDiv.style.color = '#dc3545';
+        }
+    </script>
+</body>
+</html>
