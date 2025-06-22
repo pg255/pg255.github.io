@@ -7,10 +7,9 @@ function onRotate() {
 	}
 	if (20 < rotX) {
 		hasSaid = false;
-		console.log(hasSaid);
 	}
 
-	oscillator.frequency.setValueAtTime(300 + Math.abs(rotX * 3), audioCtx.currentTime);
+	oscillator.frequency.setValueAtTime(400 + Math.abs(rotX * 3), audioCtx.currentTime);
 }
 
 function start() {
