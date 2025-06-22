@@ -1,6 +1,6 @@
 var degree, doneSaying = false, roundmax = 0, overallmax;
 
-const acl = new Accelerometer({ frequency: 100 });
+const acl = new Accelerometer({ frequency: 60 });
 acl.addEventListener("reading", () => {
 	degree = acl.x * 10;
 	if (degree > max) {
