@@ -2,11 +2,11 @@ var hasSaid = false;
 
 function onRotate() {
 	document.getElementById("degree").innerHTML = rotX;
-	if (rotx < 10) {
+	if (rotX < 10) {
 		alert("info");
 		hasSaid = true;
 	}
-	if (20 > rotx) {
+	if (20 > rotX) {
 		hasSaid = false;
 	}
 }
