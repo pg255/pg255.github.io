@@ -9,7 +9,7 @@ function onRotate() {
 		hasSaid = false;
 	}
 
-	oscillator.frequency.setValueAtTime(400 + Math.abs(rotX * 3), audioCtx.currentTime);
+	oscillator.frequency.setValueAtTime(400 + Math.abs(rotX * 4), audioCtx.currentTime);
 }
 
 function start() {
