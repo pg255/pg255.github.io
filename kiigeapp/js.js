@@ -1,12 +1,12 @@
 var hasSaid = false, record = 0, highest = 0;
 
 function onRotate() {
-	if (rotX < 10 && !hasSaid) {
+	if (Math.abs(rotX) < 10 && !hasSaid) {
 		Speakit.readText(`${parseInt(highest)}`, "en-US");
 		highest = 0;
 		hasSaid = true;
 	}
-	if (20 < rotX) {
+	if (20 < Math.abs(rotX)) {
 		hasSaid = false;
 	}
 
@@ -21,7 +21,7 @@ function onRotate() {
 	if (record) {
 		document.getElementById("record").innerHTML = parseFloat(record).toFixed(2);
 	}
-	document.getElementById("degree").innerHTML = parseFloat(rotX).toFixed(2);
+	document.getElementById("degree").innerHTML = parseFloat(Math.abs(rotX)).toFixed(2);
 
 	gainNode.gain.setValueAtTime(document.getElementById("soundvolume").value / 100, audioCtx.currentTime);
 
