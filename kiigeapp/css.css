@@ -2,8 +2,7 @@ body {
 	background-color: #333;
 	margin: 0px;
 	padding: 0px;
-	touch-action: none;
-	-webkit-tap-highlight-color: transparent;
+	touch-action: pan-y;
 }
 
 .text {
