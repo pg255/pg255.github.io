@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="css.css">
 	</head>
 	<body>
-		<div id="title" class="text">KIIGEÄPP 0.0</div>
+		<div id="title" class="text">KIIGEÄPP 0.1</div>
 		<div id="recordText" class="text">Record:<span id="record">XX.xx</span></div>
 		<div id="degreeText" class="text">Current phone angle: <span id="degree">XX.xx</span></div>
 		<div id="info" class="text"></div>
@@ -18,9 +18,9 @@
 		<div class="inputtext text">0 pitch</div>
 		<input type="number" class="input" value="400" id="0pitch">
 		<div class="inputtext text">Sound volume</div>
-		<input type="range" min="0" max="100" style="margin-top: -5px;" class="input">
+		<input type="range" min="0" max="100" value="100" style="margin-top: -5px;" class="input" id="soundvolume">
 		<div class="inputtext text" style="margin-top: -15px;">Text volume</div>
-		<input type="range" min="0" max="100" style="margin-top: -5px;" class="input">
+		<input type="range" min="0" max="100" value="100" style="margin-top: -5px;" class="input">
 		<div id="soundcheck"><input type="checkbox" id="doSound" checked> sound</div>
 		<div onclick="start()" id="start">START</div>
 		<script src="rotation.js"></script>
