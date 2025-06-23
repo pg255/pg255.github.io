@@ -14,8 +14,8 @@ function onRotate() {
 		record = Math.abs(rotX);
 	}
 
-	if (Math.abs(highest) > record) {
-		record = Math.abs(highest);
+	if (Math.abs(rotX) > highest) {
+		highest = Math.abs(rotX);
 	}
 
 	if (record) {
