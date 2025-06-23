@@ -8,12 +8,14 @@ function onRotate() {
 		hasSaid = false;
 	}
 
-	if (rotX > record) {
-		record = rotX;
+	if (Math.abs(rotX) > record) {
+		record = Math.abs(rotX);
 	}
-	
+
+	if (record) {
+		document.getElementById("record").innerHTML = parseFloat(record).toFixed(2);
+	}
 	document.getElementById("degree").innerHTML = parseFloat(rotX).toFixed(2);
-	document.getElementById("record").innerHTML = parseFloat(record).toFixed(2);
 
 	oscillator.frequency.setValueAtTime(parseFloat(document.getElementById("0pitch").value) + Math.abs(rotX * parseFloat(document.getElementById("multiplier").value)), audioCtx.currentTime);
 }
@@ -25,3 +27,22 @@ function start() {
 	}
 	document.getElementById("start");
 }
+
+var output = document.createElement('pre');
+document.body.appendChild(output);
+
+// Reference to native method(s)
+var oldLog = console.log;
+
+console.log = function( ...items ) {
+
+    // Call native method first
+    oldLog.apply(this,items);
+
+    // Use JSON to transform objects, all others display normally
+    items.forEach( (item,i)=>{
+        items[i] = (typeof item === 'object' ? JSON.stringify(item,null,4) : item);
+    });
+    output.innerHTML += items.join(' ') + '<br />';
+
+};
