@@ -1,8 +1,8 @@
 var hasSaid = false, record, highest;
 
 function onRotate() {
-	document.getElementById("degree").innerHTML = rotX.toFixed(2);
-	document.getElementById("degree").innerHTML = record.toFixed(2);
+	document.getElementById("degree").innerHTML = parseFloat(rotX).toFixed(2);
+	document.getElementById("degree").innerHTML = parseFloat(record).toFixed(2);
 	if (rotX < 10 && !hasSaid) {
 		hasSaid = true;
 	}
