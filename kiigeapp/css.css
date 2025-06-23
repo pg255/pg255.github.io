@@ -1,0 +1,75 @@
+body {
+	background-color: #333;
+	margin: 0px;
+	padding: 0px;
+	touch-action: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.text {
+	line-height: 1.5em;
+	text-align: center;
+	font-family: monospace;
+}
+
+#title {
+	width: 80%;
+	margin: 10px 10% 10px 10%;
+	font-size: 40px;
+	color: #cc0;
+}
+
+#record {
+	width: 80%;
+	margin: 15px 10% 15px 10%;
+	font-size: 30px;
+	color: #c80;
+}
+
+#degree, #info, #soundcheck {
+	width: 80%;
+	margin: 20px 10% 20px 10%;
+	font-size: 15px;
+	color: #c80;
+}
+
+#record {
+	width: 80%;
+	margin: 15px 10% 15px 10%;
+	font-size: 30px;
+	color: #c80;
+}
+
+.inputtext {
+	width: 80%;
+	margin: 20px 10% -5px 10%;
+	font-size: 15px;
+	color: #c80;
+}
+
+.input {
+	width: 80%;
+	margin: 15px 10% 15px 10%;
+	background-color: #880;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	text-align: center;
+	height: 50px;
+	font-size: 25px;
+	color: #111;
+}
+
+
+#start {
+	margin: 20px 10% 20px 10%;
+	width: 80%;
+	height: 100px;
+	line-height: 100px;
+	background-color: #880;
+	text-align: center;
+	font-family: monospace;
+	font-size: 30px;
+	color: #333;
+	border-radius: 30px;
+}

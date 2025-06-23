@@ -5,14 +5,24 @@
 		<meta name="description" content=""> <!-- change -->
 		<meta name="keywords" content=""> <!-- change -->
 		<meta charset="UTF-8">
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css.css">
 	</head>
 	<body>
-		<h1 id="degree">...</h1>
-		<p id="info">...</p>
-		<p><input type="checkbox" id="doSound" checked> sound</p>
-		<button onclick="start()">START</button>
+		<div id="title" class="text">KIIGEÄPP</div>
+		<div id="record" class="text">Record: XX.xx</div>
+		<div id="degree" class="text">Current phone angle: XX.xx</div>
+		<div id="info" class="text"></div>
+		<div class="inputtext text">Multiplier</div>
+		<input type="number" class="input" value="6" id="multiplier">
+		<div class="inputtext text">0 pitch</div>
+		<input type="number" class="input" value="400" id="0pitch">
+		<div class="inputtext text">Sound volume</div>
+		<input type="range" min="0" max="100" style="margin-top: -5px;" class="input">
+		<div class="inputtext text" style="margin-top: -15px;">Text volume</div>
+		<input type="range" min="0" max="100" style="margin-top: -5px;" class="input">
+		<div id="soundcheck"><input type="checkbox" id="doSound" checked> sound</div>
+		<div onclick="start()" id="start">START</div>
 		<script src="rotation.js"></script>
 		<script src="wakelock.js"></script>
 		<script src="sound.js"></script>

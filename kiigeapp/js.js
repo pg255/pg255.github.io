@@ -9,7 +9,7 @@ function onRotate() {
 		hasSaid = false;
 	}
 
-	oscillator.frequency.setValueAtTime(300 + Math.abs(rotX * 6), audioCtx.currentTime);
+	oscillator.frequency.setValueAtTime(parseFloat(document.getElementById("0pitch").value) + Math.abs(rotX * parseFloat(document.getElementById("multiplier").value)), audioCtx.currentTime);
 }
 
 function start() {
@@ -17,4 +17,5 @@ function start() {
 	if (document.getElementById("doSound").checked) {
 		oscillator.start();
 	}
+	document.getElementById("start");
 }
