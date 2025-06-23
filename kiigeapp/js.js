@@ -1,7 +1,9 @@
-var hasSaid = false, record = 0, highest;
+var hasSaid = false, record = 0, highest = 0;
 
 function onRotate() {
 	if (rotX < 10 && !hasSaid) {
+		Speakit.readText(`${parseFloat(highest)}`, "en-US");
+		highest = 0;
 		hasSaid = true;
 	}
 	if (20 < rotX) {
@@ -10,6 +12,10 @@ function onRotate() {
 
 	if (Math.abs(rotX) > record) {
 		record = Math.abs(rotX);
+	}
+
+	if (Math.abs(highest) > record) {
+		record = Math.abs(highest);
 	}
 
 	if (record) {
