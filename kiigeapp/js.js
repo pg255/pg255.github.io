@@ -22,10 +22,12 @@ function onRotate() {
 
 function start() {
 	startRotation();
+	wakeLock();
 	if (document.getElementById("doSound").checked) {
 		oscillator.start();
 	}
 	document.getElementById("start");
+	requestWakeLock();
 }
 
 var output = document.createElement('pre');
