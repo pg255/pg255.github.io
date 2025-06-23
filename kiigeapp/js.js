@@ -22,7 +22,6 @@ function onRotate() {
 
 function start() {
 	startRotation();
-	wakeLock();
 	if (document.getElementById("doSound").checked) {
 		oscillator.start();
 	}
