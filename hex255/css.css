@@ -18,7 +18,7 @@ body {
 	padding: 10px;
 	background-color: #212112;
 	border-radius: 20px;
-	margin: 30px;
+	margin: 15px 30px;
 }
 
 .text {
@@ -38,6 +38,7 @@ body {
 	font-size: 15px;
 	padding: 5px 10px;
 	border-radius: 10px;
+	width: 300px;
 }
 
 .input:focus {
@@ -52,4 +53,10 @@ body {
 
 .colorButton:hover {
 	color: #ff0;
+}
+
+.w100 {
+	display: block;
+	float: left;
+	width: 100%;
 }
