@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title> <!-- change -->
+		<meta name="description" content=""> <!-- change -->
+		<meta name="keywords" content=""> <!-- change -->
+		<meta charset="UTF-8">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+		<link rel="stylesheet" href="css.css">
+	</head>
+	<body>
+		<div id="color"></div>	
+		<div class="box">
+			<div class="text">Choose hex color:</div>
+			<input type="text" class="input" oninput="generateColors(this.value)"><br><br>
+			<div class="text" id="colorButtons"></div>
+		</div>
+		<div class="box" style="float: right;">
+			<div class="text">Current color: <span id="colorText">#0000</span></div>
+		</div>
+		<script src="js.js"></script>
+	</body>
+</html>
